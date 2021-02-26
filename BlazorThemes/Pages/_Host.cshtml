@@ -1,0 +1,46 @@
+﻿@page "/"
+@namespace BlazorThemes.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlazorThemes</title>
+    <base href="~/" />
+    @if (Request.Cookies["style"] == "Minty")
+    {
+        <link rel="stylesheet" href="css/minty.bootstrap.min.css" />
+    }
+    else if (Request.Cookies["style"] == "Solar")
+    {
+        <link rel="stylesheet" href="css/solar.bootstrap.min.css" />
+    }
+    else if (Request.Cookies["style"] == "Superhero")
+    {
+        <link rel="stylesheet" href="css/superhero.bootstrap.min.css" />
+    }
+    else if (Request.Cookies["style"] == "Sandstone")
+    {
+        <link rel="stylesheet" href="css/sandstone.bootstrap.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    }
+
+</head>
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
